@@ -112,7 +112,6 @@ def main_loop():
 
     message_thread.start()
 
-    # Lý do phải gửi thông báo tào lao là để ko bị nghi ngờ là phần mềm chạy ngầm, ko lại bị antivirus nó flag
 
 
 
