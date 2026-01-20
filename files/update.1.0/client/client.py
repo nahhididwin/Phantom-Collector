@@ -1,5 +1,9 @@
 # git : https://github.com/nahhididwin/Phantom-Collector
 
+# được rồi, ý tưởng core trong đây ngon vãi, đến mức t ko cần phải thật sự làm nó thật sự tàng hình mà vẫn bypass đc window security, nhìn chung nó còn rất thô sơ, và t cx ko muốn up 1 cái hoàn hảo lên.
+
+# các ông tìm ra đc content j trong đây thì cứ lấy về mà xài vì đây là git repo open source của tôi :)
+
 import os
 import requests
 import time
