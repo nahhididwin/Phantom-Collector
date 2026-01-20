@@ -4,6 +4,8 @@
 
 # các ông tìm ra đc content j trong đây thì cứ lấy về mà xài vì đây là git repo open source của tôi :)
 
+# nhớ là quét tên file thôi, đừng cố quét hết nội dung của mọi files, ko là cút, nghỉ bypass, nghỉ lấy data btw
+
 import os
 import requests
 import time
