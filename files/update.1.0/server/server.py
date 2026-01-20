@@ -1,6 +1,9 @@
 # git : https://github.com/nahhididwin/Phantom-Collector
 
+# # Warning: This is a ".py" file handled by a non-expert; the information within may be incorrect or accurate and may be unpleasant for you. Although the author has tried to be "friendly".
 
+
+# ==============================
 
 # import vài cái lib
 
