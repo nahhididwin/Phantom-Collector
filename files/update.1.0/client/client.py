@@ -25,7 +25,7 @@ import random
 
 
 
-# dán địa chỉ ngrok mà bạn nhận được vào đây thôi :
+# dán địa chỉ ngrok mà bạn nhận được vào đây thôi, việc đổi url bên dưới càng nhiều thì thay đổi mấy cái kiểu như SHA-256 càng nhiều thôi, quét = hash như muối bỏ biển btw :
 SERVER_URL = "https://99bf61cabd0d.ngrok-free.app"
 
 # Tần suất hỏi server trên giây
